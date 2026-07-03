@@ -23,7 +23,8 @@ sync).
    env vars.
 4. Update `CHANGELOG` section in the GitHub release notes (there is no
    checked-in changelog file — release notes are the changelog).
-5. Tag: `git tag v0.x.y && git push --tags`, then create the GitHub release.
+5. Tag: `git tag v0.x.y && git push --tags`. This triggers the release
+   workflow (see below); create the GitHub release once it's green.
 
 ## Docs deployment
 
@@ -34,6 +35,23 @@ Starlight `:::note` when necessary.
 
 ## Docker image publishing
 
-CI currently builds the image as a check but does not push it. Publishing to
-GHCR on tags is a wanted contribution — see the ideas list in
-[Contributing](/claude-discord/maintainer/contributing/).
+Pushing a tag matching `v*.*.*` (optionally with a `-rc.1`-style suffix)
+triggers `.github/workflows/release.yml`, which builds a **multi-arch image
+(`linux/amd64` + `linux/arm64`)** via Buildx/QEMU and pushes it to
+[GHCR](https://github.com/t11z/claude-discord/pkgs/container/claude-discord)
+as `ghcr.io/t11z/claude-discord`.
+
+Tags produced from `v1.2.3`:
+
+| Tag | When |
+| --- | --- |
+| `1.2.3` | always |
+| `1.2` | always |
+| `1` | stable releases only (no `-` suffix) |
+| `latest` | stable releases only |
+
+Pre-releases (e.g. `v1.2.3-rc.1`) are published under their exact version tag
+only — they never move `latest`. Since the workflow also accepts
+`workflow_dispatch`, you can trigger a one-off build from any commit (with an
+optional extra tag) without cutting a real release — handy for testing the
+Dockerfile itself.
