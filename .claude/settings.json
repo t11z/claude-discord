@@ -1,8 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "permissions": {
-    "allow": [
-      "mcp__Claude_Code_Remote__send_later"
-    ]
+    "allow": ["mcp__Claude_Code_Remote__send_later"]
   }
 }
