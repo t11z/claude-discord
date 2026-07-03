@@ -6,6 +6,7 @@
   <a href="https://github.com/t11z/claude-discord/actions/workflows/ci.yml"><img src="https://github.com/t11z/claude-discord/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-D97757" alt="MIT license" /></a>
   <a href="https://t11z.github.io/claude-discord/"><img src="https://img.shields.io/badge/docs-github%20pages-5865F2" alt="Documentation" /></a>
+  <a href="https://github.com/t11z/claude-discord/pkgs/container/claude-discord"><img src="https://img.shields.io/badge/ghcr.io-amd64%20%7C%20arm64-D97757" alt="GHCR image (amd64 & arm64)" /></a>
   <img src="https://img.shields.io/badge/node-%E2%89%A520-2ea44f" alt="Node >= 20" />
 </p>
 
